@@ -15,7 +15,8 @@ export interface FetchTodosAction {
 }
 
 export interface ClearTodosAction {
-    type: ActionTypes.clearTodos
+    type: ActionTypes.clearTodos;
+    payload:number;
 }
 
 const url = 'https://jsonplaceholder.typicode.com/todos'
@@ -32,7 +33,8 @@ export const fetchTodos = () => {
 export const clearTodos = () => {
     return (dispatch: Dispatch) => {
         dispatch<ClearTodosAction>({
-            type: ActionTypes.clearTodos
+            type: ActionTypes.clearTodos, 
+            payload:id,
             //payload: todoText
         })
        

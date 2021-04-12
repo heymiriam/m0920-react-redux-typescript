@@ -26,18 +26,19 @@ class _App extends Component<AppProps,AppState> {
         }
     }
 
-    onButtonClick = (): void => {
-        this.props.clearTodos()
-        this.setState({})
+    onButtonClick = (id:number): void => {
+        this.props.clearTodos(id)
         this.props.fetchTodos()
         this.setState({ fetching: true })
     }
+    
+
 
     renderList(): JSX.Element[] {
         return this.props.todos.map((todo: Todo) => {
             return(
                 <div key={todo.id}>
-                     <button onClick={this.onButtonClick}>Clear</button>
+                     <button onClick={this.onButtonClick(todo.id)}>Clear</button>
                      <br></br>
                     {todo.title}
                     <br></br> <br></br>

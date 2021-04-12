@@ -5,8 +5,8 @@ export const todosReducer = (state: Todo[] = [], action: Action ) => {
         case ActionTypes.fetchTodos:
             return action.payload
         case ActionTypes.clearTodos:
-            return []
-        default:
+            return state.map((sentence: Todo) => sentence.id !== action.payload);
+            default:
             return state
     }
 }
