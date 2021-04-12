@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Todo, fetchTodos } from '../actions'
+import { Todo, fetchTodos, clearTodos } from '../actions'
 import { StoreState } from '../reducers'
 
 interface AppProps {
     todos: Todo[];
-    fetchTodos: any
+    fetchTodos: Function; //only for Action creators
+    clearTodos: Function;
 }
 
 interface AppState {
@@ -26,6 +27,7 @@ class _App extends Component<AppProps,AppState> {
     }
 
     onButtonClick = (): void => {
+        this.props.clearTodos()
         this.props.fetchTodos()
         this.setState({ fetching: true })
     }
@@ -55,4 +57,4 @@ const mapStateToProps = ({ todos }: StoreState): { todos: Todo[] } => {
     return { todos }
 }
 
-export const App = connect(mapStateToProps, { fetchTodos })(_App)
+export const App = connect(mapStateToProps, { fetchTodos, clearTodos })(_App)
