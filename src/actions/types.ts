@@ -2,7 +2,8 @@ import { FetchTodosAction, ClearTodosAction } from './todos'
 
 export enum ActionTypes {
     fetchTodos,
-    clearTodos
+    clearTodos,
+    
 }
 
 export type Action = FetchTodosAction | ClearTodosAction

@@ -33,6 +33,9 @@ export const clearTodos = () => {
     return (dispatch: Dispatch) => {
         dispatch<ClearTodosAction>({
             type: ActionTypes.clearTodos
+            //payload: todoText
         })
+       
+
     }
 }

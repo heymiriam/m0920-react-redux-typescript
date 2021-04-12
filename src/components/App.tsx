@@ -28,6 +28,7 @@ class _App extends Component<AppProps,AppState> {
 
     onButtonClick = (): void => {
         this.props.clearTodos()
+        this.setState({})
         this.props.fetchTodos()
         this.setState({ fetching: true })
     }
@@ -36,7 +37,10 @@ class _App extends Component<AppProps,AppState> {
         return this.props.todos.map((todo: Todo) => {
             return(
                 <div key={todo.id}>
+                     <button onClick={this.onButtonClick}>Clear</button>
+                     <br></br>
                     {todo.title}
+                    <br></br> <br></br>
                 </div>
             )
         })
@@ -47,6 +51,7 @@ class _App extends Component<AppProps,AppState> {
             <div>
                 <button onClick={this.onButtonClick}>Fetch</button>
                 {this.state.fetching ? 'Loading....' : null}
+               
                 {this.renderList()}
             </div>
         )
